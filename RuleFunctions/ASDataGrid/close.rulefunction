@@ -1,0 +1,15 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.close {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		String container;
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		Store.close(url, container);
+	}
+}

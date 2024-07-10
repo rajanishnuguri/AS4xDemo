@@ -1,0 +1,21 @@
+/**
+ * @description 
+ */
+Object[] rulefunction RuleFunctions.ASDataGrid.getAll {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		Object[] con;
+		String tableName;
+		
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;		
+		try {
+			return Store.getAll(url, con);
+		} catch (Exception e) {
+			return null;
+		}	
+	}
+}

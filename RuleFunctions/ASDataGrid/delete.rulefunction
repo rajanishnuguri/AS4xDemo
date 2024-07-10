@@ -1,0 +1,16 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.delete {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		Concept con;
+		String TableName; 
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		Store.delete(url, String.toLowerCase(TableName), con);
+	}
+}

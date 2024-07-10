@@ -1,0 +1,17 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.put {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		Concept con;
+		String tableName; 
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		
+		Store.put(url, String.toLowerCase(tableName), con);
+	}
+}

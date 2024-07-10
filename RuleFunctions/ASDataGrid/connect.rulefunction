@@ -1,0 +1,38 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.connect {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+	
+	}
+	body {
+		Object logger = Log.getLogger("ASDataGrid.connect");
+		
+		String dgName = System.getGlobalVariableAsString("SharedResources/DataGrid/DG_Name", "aom");
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		int index =  0;
+		
+		for (; index < ScoreCards.ActiveSpacesScoreCard.AS_RetryConnectCount; index++) {
+			try {
+				Log.log(logger, "info", "Connecting to AS store '%s' at %s", dgName, url);
+				Object storeInfo = Store.ConnectionInfo.create(url, "AS");
+				Store.ConnectionInfo.setName(storeInfo, dgName);
+				Store.ConnectionInfo.setConnectionPoolSize(storeInfo, ScoreCards.ActiveSpacesScoreCard.ConnectionPool_Size);
+				Store.ConnectionInfo.setConnectionTimeout(storeInfo, ScoreCards.ActiveSpacesScoreCard.AS_Connection_Timeout);
+				Store.connect(storeInfo);
+				break;				
+			}
+			catch (Exception e){	
+				Log.log(logger, "error", "Exception occured while trying to establish AS connection for DG : %s' at URL : %s. Retry Count: %d, Error is %s", dgName, url, index, e);							
+			}	
+		}
+		
+		if (index == ScoreCards.ActiveSpacesScoreCard.AS_RetryConnectCount) {
+			Log.log(logger, "error", " Unable to establish connectivity to AS store '%s' at %s after %d attempts. Hence shutting down the engine.", dgName, url, ScoreCards.ActiveSpacesScoreCard.AS_RetryConnectCount);
+			Engine.shutdown(false);
+		}
+	}
+}

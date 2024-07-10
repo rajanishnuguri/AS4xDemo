@@ -1,0 +1,15 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.deleteAll {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		Object[] cons;
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		Store.deleteAll(url, cons);
+	}
+}

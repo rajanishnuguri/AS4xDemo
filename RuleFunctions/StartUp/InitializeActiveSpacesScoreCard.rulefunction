@@ -1,0 +1,39 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.StartUp.InitializeActiveSpacesScoreCard {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		
+	}
+	body {
+		
+		Object logger = Log.getLogger("RuleFunctions.StartUp.InitializeActiveSpacesScoreCard");
+			
+		Log.log(logger, "info", "Start of InitializeActiveSpacesScoreCard Function");
+			
+		try {
+			
+			ScoreCards.ActiveSpacesScoreCard.DG_URL = System.getGlobalVariableAsString("SharedResources/DataGrid/DG_URL", "http://localhost:5055");
+					
+			ScoreCards.ActiveSpacesScoreCard.Enable_Local_Snapshot = System.getGlobalVariableAsBoolean("SharedResources/DataGrid/Enable_Local_Snapshot",true);
+				
+			ScoreCards.ActiveSpacesScoreCard.ConnectionPool_Size = System.getGlobalVariableAsInt("SharedResources/DataGrid/ConnectionPool_Size",6);
+				
+			ScoreCards.ActiveSpacesScoreCard.AS_Connection_Timeout = System.getGlobalVariableAsInt("SharedResources/DataGrid/AS_Connection_Timeout",10);	
+				
+			ScoreCards.ActiveSpacesScoreCard.AS_RetryConnectCount = System.getGlobalVariableAsInt("SharedResources/DataGrid/RetryCount", 3);
+			
+			ScoreCards.ActiveSpacesScoreCard.DefaultLockExpiryInSecs = System.getGlobalVariableAsLong("SharedResources/DataGrid/DefaultLockExpiryInSecs", 1);
+			
+			Log.log(logger, "info", "End of InitializeActiveSpacesScoreCard Function");
+		}  
+			
+		catch (Exception e) {
+			Log.logException(logger, "error", "Error Occured while executing InitializeActiveSpacesScoreCard During Startup. Hence Stopping the engine.", e);
+			Engine.shutdown(true);
+		}	
+	}
+}

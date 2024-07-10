@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><element:Scorecard xmlns:element="http:///com/tibco/cep/designtime/core/model/element" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" folder="/ScoreCards/" name="ActiveSpacesScoreCard" description="" GUID="8D7623ED-F97B-0FEE-0D82-AE9BF1323BAB" ownerProjectName="AS4xDemo" scorecard="true">
+    <properties name="DG_URL" ownerProjectName="AS4xDemo"/>
+    <properties name="Enable_Local_Snapshot" ownerProjectName="AS4xDemo" type="boolean"/>
+    <properties name="ConnectionPool_Size" ownerProjectName="AS4xDemo" type="int"/>
+    <properties name="AS_RetryConnectCount" ownerProjectName="AS4xDemo" type="int"/>
+    <properties name="AS_Connection_Timeout" ownerProjectName="AS4xDemo" type="int"/>
+    <properties name="DefaultLockExpiryInSecs" ownerProjectName="AS4xDemo" type="long"/>
+</element:Scorecard>

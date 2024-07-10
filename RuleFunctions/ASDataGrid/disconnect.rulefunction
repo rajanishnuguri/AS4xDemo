@@ -1,0 +1,16 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.disconnect {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		
+		Store.disconnect(url);
+	}
+}

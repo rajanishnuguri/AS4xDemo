@@ -1,0 +1,16 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.open {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		String tableName; 
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		
+		Store.open(url, String.toLowerCase(tableName));
+	}
+}

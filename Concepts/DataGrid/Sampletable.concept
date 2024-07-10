@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element:Concept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:element="http:///com/tibco/cep/designtime/core/model/element" folder="/Concepts/DataGrid/" name="Sampletable" description="" GUID="68105D07-03BA-FCA9-14F0-0C021E1D49D6" ownerProjectName="AS4xDemo" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="schedulerName" ownerProjectName="AS4xDemo"/>
+  <properties name="workKey" ownerProjectName="AS4xDemo"/>
+  <properties name="agentName" ownerProjectName="AS4xDemo"/>
+  <properties name="eventType" ownerProjectName="AS4xDemo"/>
+  <properties name="eventPayload" ownerProjectName="AS4xDemo"/>
+  <properties name="expTime" ownerProjectName="AS4xDemo" type="DateTime"/>
+  <properties name="createDateTime" ownerProjectName="AS4xDemo" type="DateTime"/>
+  <properties name="modifiedDateTime" ownerProjectName="AS4xDemo" type="DateTime"/>
+</element:Concept>

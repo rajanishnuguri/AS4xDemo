@@ -1,0 +1,21 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.putWithTTL {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		Object storeItem;
+		String tableName;
+		long ttl;
+	}
+	body {
+		
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		
+		Store.Item.setTTL(storeItem, ttl);
+		Store.put(url, String.toLowerCase(tableName), storeItem);
+				
+	}
+}

@@ -1,0 +1,21 @@
+/**
+ * @description 
+ */
+void rulefunction RuleFunctions.ASDataGrid.setTransaction {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		boolean enable;
+	}
+	body {
+		if (System.getGlobalVariableAsBoolean("SharedResources/DataGrid/EnableTransaction", false)) {
+			String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+			if (enable && url != "") {
+				Store.Transactions.enableTransactions(url);
+			} else if (!enable && url != "") {
+				Store.Transactions.disableTransactions(url);
+			}
+		}
+	}
+}

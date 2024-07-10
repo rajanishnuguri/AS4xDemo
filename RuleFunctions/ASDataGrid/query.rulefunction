@@ -1,0 +1,27 @@
+/**
+ * @description 
+ */
+Object[] rulefunction RuleFunctions.ASDataGrid.query {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		String query;
+		Object[] params;
+		String entityUrl;
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		Object queryOptions = Store.QueryOptions.create("AS");
+		Store.QueryOptions.AS.setLocalSnapshotConsistency(queryOptions);
+		
+		Object iter = Store.query(url, query, params, queryOptions, entityUrl);
+		Object result = Collections.List.createArrayList();
+		while (Collections.Iterator.hasNext(iter)) {
+			Object obj = Collections.Iterator.next(iter);
+			Collections.add(result, obj);
+		}
+
+		return Collections.toArray(result);
+	}
+}

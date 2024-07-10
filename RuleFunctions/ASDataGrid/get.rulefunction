@@ -1,0 +1,17 @@
+/**
+ * @description 
+ */
+Object rulefunction RuleFunctions.ASDataGrid.get {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		Concept con;
+		String tableName; 
+	}
+	body {
+		String url = ScoreCards.ActiveSpacesScoreCard.DG_URL;
+		
+		return Store.get(url, String.toLowerCase(tableName), con);
+	}
+}
